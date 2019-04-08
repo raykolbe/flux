@@ -42,6 +42,6 @@ func UpdateConditions(client v1beta1client.HelmReleaseInterface, fhr *v1beta1.He
 	if err != nil {
 		return err
 	}
-	_, err = client.Patch(fhr.Name, t, bytes)
+	_, err = client.Patch(fhr.Name, t, bytes, "status")
 	return err
 }

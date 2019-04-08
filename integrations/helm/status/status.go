@@ -115,7 +115,7 @@ func UpdateReleaseStatus(client v1beta1client.HelmReleaseInterface, fhr v1beta1.
 		// StrategicMergePatch, for now, but since we
 		// want to unconditionally set the value, this
 		// is OK.
-		_, err = client.Patch(fhr.Name, types.MergePatchType, patchBytes)
+		_, err = client.Patch(fhr.Name, types.MergePatchType, patchBytes, "status")
 	}
 	return err
 }
@@ -131,7 +131,7 @@ func UpdateReleaseRevision(client v1beta1client.HelmReleaseInterface, fhr v1beta
 		// StrategicMergePatch, for now, but since we
 		// want to unconditionally set the value, this
 		// is OK.
-		_, err = client.Patch(fhr.Name, types.MergePatchType, patchBytes)
+		_, err = client.Patch(fhr.Name, types.MergePatchType, patchBytes, "status")
 	}
 	return err
 }
